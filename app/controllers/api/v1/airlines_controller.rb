@@ -1,6 +1,9 @@
 module Api
     module V1
         class AirlinesController < ApplicationController
+            
+            protect_from_forgery with: :null_session # Provides an empty session during request but doesn't reset it completely.
+
 
             def create
                 airline = Airline.new(airline_params)
